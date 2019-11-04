@@ -60,6 +60,11 @@ class WebAuth {
       return await auth0Channel
           .invokeMethod('authorize', authorizeUrl)
           .then((accessToken) async {
+
+            if (accessToken == null) {
+              throw new Auth0Exeption();
+            }
+
         return await this.client.exchange({
           'code': accessToken,
           'verifier': params['verifier'],
