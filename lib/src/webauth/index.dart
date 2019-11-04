@@ -62,7 +62,6 @@ class WebAuth {
           .then((accessToken) async {
 
             if (accessToken == null) {
-              clearSession(federated: false);
               throw new Auth0Exeption();
             }
 
