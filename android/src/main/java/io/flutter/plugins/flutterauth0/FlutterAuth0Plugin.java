@@ -74,9 +74,11 @@ public class FlutterAuth0Plugin implements MethodCallHandler {
     }
 
     public static void resolve(String code, String error) {
-        if (error != null)
-            response.error("ACTIVITY_FAILURE", error, null);
-        response.success(code);
-    }
 
+        if (error != null) {
+            response.error("ACTIVITY_FAILURE", error, null);
+        } else {
+            response.success(code);
+        }
+    }
 }
